@@ -1,0 +1,33 @@
+
+
+services:
+  db:
+    image: postgres:11-alpine
+    container_name: riderizeDatabase
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      TZ: America/Sao_Paulo
+
+    volumes:
+      - pgdata:/data/postgres
+    network_mode: host
+
+  app:
+    build: .
+    container_name: riderizeContainer
+    environment:
+      TZ: America/Sao_Paulo
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    volumes:
+      - .:/usr/app
+    network_mode: host
+
+volumes:
+  pgdata:
+    driver: local
