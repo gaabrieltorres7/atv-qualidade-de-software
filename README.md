@@ -11,7 +11,7 @@ Este projeto é configurado para facilitar o desenvolvimento, execução de test
    npm install
 ## 📦 Scripts Disponíveis
 
-Execute o comando(quando rodar o comando, você executará a suíte de testes configurada no projeto e irá gerar e visualizar o relatório de cobertura):
+Execute os comandos abaixo um de cada vez(quando rodar o comando, você executará a suíte de testes configurada no projeto(npm run test) e irá gerar e visualizar o relatório de cobertura(npm run test:coverage):
    ```bash
    npm run test
    npm run test:watch
